@@ -1,0 +1,32 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is not neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+self["webpackHotUpdateitunes"]("main",{
+
+/***/ "./src/module/musicPlayer.js":
+/*!***********************************!*\
+  !*** ./src/module/musicPlayer.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"musicPlayerInit\": () => /* binding */ musicPlayerInit\n/* harmony export */ });\n/* harmony import */ var _supScript_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./supScript.js */ \"./src/module/supScript.js\");\n\nvar musicPlayerInit = function musicPlayerInit() {\n  var audio = document.querySelector('.audio');\n  var audioImg = document.querySelector('.audio-img');\n  var audioHeader = document.querySelector('.audio-header');\n  var audioPlayer = document.querySelector('.audio-player');\n  var audioNavigation = document.querySelector('.audio-navigation');\n  var audioButtonPlay = document.querySelector('.audio-button__play');\n  var audioProgress = document.querySelector('.audio-progress');\n  var audioProgressTiming = document.querySelector('.audio-progress__timing');\n  var audioTimePassed = document.querySelector('.audio-time__passed');\n  var audioTimeTotal = document.querySelector('.audio-time__total');\n  var playlist = ['hello', 'flow', 'speed'];\n  var trackIndex = 0;\n\n  var loadTrack = function loadTrack() {\n    var isPlayed = audioPlayer.paused;\n    var track = playlist[trackIndex];\n    audioImg.src = \"./audio/\".concat(track, \".jpg\");\n    audioHeader.textContent = track.toUpperCase();\n    audioPlayer.src = \"./audio/\".concat(track, \".mp3\");\n    audioPlayer.addEventListener('canplay', function () {\n      if (isPlayed) {\n        audioPlayer.paused();\n      } else {\n        audioPlayer.play();\n      }\n\n      updateTime();\n    });\n  };\n\n  var prevTrack = function prevTrack() {\n    if (trackIndex !== 0) {\n      trackIndex--;\n    } else {\n      trackIndex = playlist.length - 1;\n    }\n\n    loadTrack();\n    audioProgressTiming.style.width = progress + 0;\n  };\n\n  var nextTrack = function nextTrack() {\n    if (trackIndex === playlist.length - 1) {\n      trackIndex = 0;\n    } else {\n      trackIndex++;\n    }\n\n    loadTrack();\n    audioProgressTiming.style.width = progress + 0;\n  };\n\n  audioNavigation.addEventListener('click', function (event) {\n    var target = event.target;\n\n    if (target.classList.contains('audio-button__play')) {\n      audio.classList.toggle('play');\n      audioButtonPlay.classList.toggle('fa-play');\n      audioButtonPlay.classList.toggle('fa-pause');\n\n      if (audioPlayer.paused) {\n        audioPlayer.play();\n      } else {\n        audioPlayer.pause();\n      }\n\n      var track = playlist[trackIndex];\n      audioHeader.textContent = track.toUpperCase();\n    }\n\n    if (target.classList.contains('audio-button__prev')) {\n      prevTrack();\n    }\n\n    if (target.classList.contains('audio-button__next')) {\n      nextTrack();\n    }\n  });\n  audioPlayer.addEventListener('ended', function () {\n    nextTrack();\n    audioPlayer.play();\n  });\n\n  var updateTime = function updateTime() {\n    var duration = audioPlayer.duration;\n    var currentTime = audioPlayer.currentTime;\n    var progress = currentTime / duration * 100;\n    audioProgressTiming.style.width = progress + '%';\n    var minutePassed = Math.floor(currentTime / 60) || '0';\n    var secondsPassed = Math.floor(currentTime % 60) || '0';\n    var minuteTotal = Math.floor(duration / 60) || '0';\n    var secondsTotal = Math.floor(duration % 60) || '0';\n    audioTimePassed.textContent = \"\".concat((0,_supScript_js__WEBPACK_IMPORTED_MODULE_0__.addZero)(minutePassed), \":\").concat((0,_supScript_js__WEBPACK_IMPORTED_MODULE_0__.addZero)(secondsPassed));\n    audioTimeTotal.textContent = \"\".concat((0,_supScript_js__WEBPACK_IMPORTED_MODULE_0__.addZero)(minuteTotal), \":\").concat((0,_supScript_js__WEBPACK_IMPORTED_MODULE_0__.addZero)(secondsTotal));\n    audioPlayer.addEventListener('timeupdate', updateTime);\n    audioProgress.addEventListener('click', function (event) {\n      var x = event.offsetX;\n      var allWidth = audioProgress.clientWidth;\n      var progress = x / allWidth * audioPlayer.duration;\n      audioPlayer.currentTime = progress;\n    });\n\n    musicPlayerInit.stop = function () {\n      if (!audioPlayer.paused) {\n        audioPlayer.pause();\n        audio.classList.remove('play');\n        audioButtonPlay.classList.remove('fa_pause');\n        audioButtonPlay.classList.add('fa_play');\n      }\n    };\n  };\n\n  updateTime(); // audioPlayer.addEventListener('updateTime', () => {\n  //   const currentTime = audioPlayer.currentTime;\n  //   const duration = audioPlayer.duration;\n  //   audioProgress.value = (currentTime / duration) * 100;\n  //   let minutePassed = Math.floor(currentTime / 60);\n  //   let secondsPassed = Math.floor(currentTime % 60);\n  //   let minuteTotal = Math.floor(duration / 60);\n  //   let secondsTotal = Math.floor(duration % 60);\n  //   audioTimePassed.textContent = `${addZero(minutePassed)}:${addZero(\n  //     secondsPassed\n  //   )}`;\n  //   audioTimeTotal.textContent = `${addZero(minuteTotal)}:${addZero(\n  //     secondsTotal\n  //   )}`;\n  // });\n  // // пауза при переключение\n  // musicPlayerInit.stop = () => {\n  //   audioPlayer.pause();\n  //   toggleIcon();\n  // };\n};\n\n//# sourceURL=webpack://itunes/./src/module/musicPlayer.js?");
+
+/***/ })
+
+},
+/******/ function(__webpack_require__) { // webpackRuntimeModules
+/******/ 	"use strict";
+/******/ 
+/******/ 	/* webpack/runtime/getFullHash */
+/******/ 	(() => {
+/******/ 		__webpack_require__.h = () => "b1240e9443b16ece0a5a"
+/******/ 	})();
+/******/ 	
+/******/ }
+);
